@@ -19,12 +19,12 @@ img{
 }
 
 .slider{
-    width: 50vw;
+    width: 60vw;
     position: relative;
 }
 
 .pic{
-    height: 35vh;
+    height: 38vh;
     display: none;
 }
 
