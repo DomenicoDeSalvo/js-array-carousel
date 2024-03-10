@@ -37,10 +37,8 @@ albumElement.innerHTML = picItem;
 const picClassList = document.getElementsByClassName('pic'); //Element | Null
 //Dichiarazione della variabile corrispondente alla posizione del contenitore mostrato nell'array.
 let picShownIndex = 0;//Number
-//Acquisizione primo elemento della lista.
-const firstPic = picClassList[picShownIndex]; //Element
-//Attribuzione della classe.
-firstPic.classList.add('shown');
+//Attribuzione della classe al primo elemento della lista.
+picClassList[picShownIndex].classList.add('shown');
 
 //Al click sulle frecce, l'immagine mostrata dovrà cambiare.
 //Acquisizione bottoni.
