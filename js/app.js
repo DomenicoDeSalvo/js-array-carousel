@@ -11,7 +11,7 @@ const pathsArray = [
 ]; //Array
 
 //Acquisizione elemento "album".
-const albumDOMElement = document.querySelector('.album'); //Element | Null
+const albumElement = document.querySelector('.album'); //Element | Null
 //Creazione variabile da inserire nel HTML
 let picItem = ''; //String   
 
@@ -26,8 +26,14 @@ for(let i = 0; i < pathsArray.length; i++) {
     </div> 
     `; //Element
 
-    //albumItem viene associata a picItem per poter portare la stringa fuori dal ciclo FOR
+    //albumItem viene associata a picItem per poter portare la stringa fuori dal ciclo FOR.
     picItem += albumItem;
 }
+//Inclusione nel DOM delle immagini.
+albumElement.innerHTML = picItem;
 
-albumDOMElement.innerHTML = picItem;
+//Cambio delle classi dei contenitori immagini a seconda del fatto che debbano essere mostrati o meno.
+//Acquisizione del contenitore.
+const picClassElement = document.querySelector('.pic'); //Element | Null
+//Attribuzione della classe.
+picClassElement.classList.add('shown')
