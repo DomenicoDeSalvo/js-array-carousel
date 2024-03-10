@@ -50,6 +50,12 @@ img{
     text-align: center;
     line-height: 30px;
     vertical-align: middle;
+    cursor: pointer;
+}
+
+
+.up:hover, .down:hover{
+    background-color: rgba(200, 200, 200, 1);
 }
 
 .up{
