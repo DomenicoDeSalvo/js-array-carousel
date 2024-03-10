@@ -11,10 +11,12 @@ const pathsArray = [
 ]; //Array
 
 //Acquisizione elemento "album".
-const sliderElement = document.querySelector('.album'); //Element | Null
+const albumDOMElement = document.querySelector('.album'); //Element | Null
+//Creazione variabile da inserire nel HTML
+let picItem = ''; //String   
 
 //Creazione ciclo per assegnare le immagini.
-for(let i = 0; i = pathsArray < 1; i++) {
+for(let i = 0; i < pathsArray.length; i++) {
 
     const imagePath = pathsArray[i]; //String
     //Creazione variabile a cui si assegna la stringa con annessa immagine.
@@ -24,7 +26,8 @@ for(let i = 0; i = pathsArray < 1; i++) {
     </div> 
     `; //Element
 
-    //Inclusione della variabile nel codice
-
-
+    //albumItem viene associata a picItem per poter portare la stringa fuori dal ciclo FOR
+    picItem += albumItem;
 }
+
+albumDOMElement.innerHTML = picItem;
