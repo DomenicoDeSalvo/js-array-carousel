@@ -20,7 +20,7 @@ img{
 }
 
 .slider{
-    width: 60vw;
+    width: 50vw;
     position: relative;
 }
 
@@ -45,7 +45,22 @@ img{
     height: 38vh;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -15%;
+}
+
+.prewiev{
+    height: 20%;
+}
+
+.layer{
+    filter: brightness(50%);
+}
+
+.prewiev img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
 }
 
 /* BUTTONS */
@@ -62,6 +77,7 @@ img{
     line-height: 30px;
     vertical-align: middle;
     cursor: pointer;
+    z-index: 10;
 }
 
 
