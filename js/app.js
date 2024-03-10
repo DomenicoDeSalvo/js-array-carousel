@@ -12,8 +12,11 @@ const pathsArray = [
 
 //Acquisizione elemento "album".
 const albumElement = document.querySelector('.album'); //Element | Null
-//Creazione variabile da inserire nel HTML
+//Acquisizion elemento "prewievs_Album"
+const prewievsAlbumElement = document.querySelector('.prewievs_slider'); //Element | Null
+//Creazione variabili da inserire nel HTML
 let picItem = ''; //String   
+let prewievItem = ''; //String
 
 //Creazione ciclo per assegnare le immagini.
 for(let i = 0; i < pathsArray.length; i++) {
@@ -26,19 +29,35 @@ for(let i = 0; i < pathsArray.length; i++) {
     </div> 
     `; //Element
 
+    const prewievPath = pathsArray[i]; //String
+    //Creazione variabile a cui si assegna la stringa con annessa immagine.
+    const prewievsAlbumItem = `
+    <div class="prewiev layer">
+        <img src="${prewievPath}">
+    </div> 
+    `; //Element
+
     //albumItem viene associata a picItem per poter portare la stringa fuori dal ciclo FOR.
     picItem += albumItem;
+     //prewievAlbumItem viene associata a prewievItem per poter portare la stringa fuori dal ciclo FOR.
+     prewievItem += prewievsAlbumItem;
 }
 //Inclusione nel DOM delle immagini.
 albumElement.innerHTML = picItem;
+prewievsAlbumElement.innerHTML += prewievItem;
 
-//Cambio delle classi dei contenitori immagini a seconda del fatto che debbano essere mostrati o meno.
+//Cambio delle classi dei contenitori immagini a seconda del fatto che debbano essere mostrati o meno. Nella prewiev l'immagine mostrata non ha il layer.
 //Acquisizione dei contenitori.
 const picClassList = document.getElementsByClassName('pic'); //Element | Null
+const prewievClassList = document.getElementsByClassName('prewiev'); //Element | Null
+
 //Dichiarazione della variabile corrispondente alla posizione del contenitore mostrato nell'array.
 let picShownIndex = 0;//Number
-//Attribuzione della classe al primo elemento della lista.
+let prewievShownIndex = picShownIndex;//Number
+
+//Attribuzione della classe al primo elemento della lista. Rimozione della classe layer dalla prewiev selezionata.
 picClassList[picShownIndex].classList.add('shown');
+prewievClassList[picShownIndex].classList.remove('layer');
 
 //Al click sulle frecce, l'immagine mostrata dovrà cambiare.
 //Acquisizione bottoni.
@@ -49,16 +68,24 @@ const downElement = document.querySelector('.down');
 upElement.addEventListener('click', function() {
     if(picShownIndex > 0) {
 
-        //La classe shown viene tolta dal contenitore attuale.
+        //La classe shown viene tolta dal contenitore attuale mentre classe layer viene rimessa.
         picClassList[picShownIndex].classList.remove('shown');
-        //E viene assegnata al contenitore precedente.
+        prewievClassList[picShownIndex].classList.add('layer');
+
+        //Succede l'opposto all'immagine precedente.
         picShownIndex--;//Number
         picClassList[picShownIndex].classList.add('shown');
+        prewievClassList[picShownIndex].classList.remove('layer');
+
     } else {
         //Creazione ciclo perpetuo.
         picClassList[picShownIndex].classList.remove('shown');
+        prewievClassList[picShownIndex].classList.add('layer');
+
         picShownIndex = picClassList.length - 1; //number
         picClassList[picShownIndex].classList.add('shown');
+        prewievClassList[picShownIndex].classList.remove('layer');
+
 
     }
 
@@ -69,16 +96,24 @@ upElement.addEventListener('click', function() {
 downElement.addEventListener('click', function() {
     if(picShownIndex < picClassList.length - 1) {
 
-        //La classe shown viene tolta dal contenitore attuale.
+        //La classe shown viene tolta dal contenitore attuale mentre classe layer viene rimessa.
         picClassList[picShownIndex].classList.remove('shown');
-        //E viene assegnata al contenitore precedente.
+        prewievClassList[picShownIndex].classList.add('layer');
+
+        //Succede l'opposto all'immagine successiva.
         picShownIndex++;//Number
         picClassList[picShownIndex].classList.add('shown');
+        prewievClassList[picShownIndex].classList.remove('layer');
+
     } else {
         //Creazione ciclo perpetuo.
         picClassList[picShownIndex].classList.remove('shown');
+        prewievClassList[picShownIndex].classList.add('layer');
+
         picShownIndex = 0; //number
         picClassList[picShownIndex].classList.add('shown');
+        prewievClassList[picShownIndex].classList.remove('layer');
+
 
     }
 
