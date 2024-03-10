@@ -33,7 +33,7 @@ for(let i = 0; i < pathsArray.length; i++) {
 albumElement.innerHTML = picItem;
 
 //Cambio delle classi dei contenitori immagini a seconda del fatto che debbano essere mostrati o meno.
-//Acquisizione del contenitore.
-const picClassElement = document.querySelector('.pic'); //Element | Null
+//Acquisizione dei contenitori.
+const picClassList = document.getElementsByClassName('pic'); //Element | Null
 //Attribuzione della classe.
-picClassElement.classList.add('shown')
+picClassList[0].classList.add('shown')
