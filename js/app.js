@@ -35,5 +35,34 @@ albumElement.innerHTML = picItem;
 //Cambio delle classi dei contenitori immagini a seconda del fatto che debbano essere mostrati o meno.
 //Acquisizione dei contenitori.
 const picClassList = document.getElementsByClassName('pic'); //Element | Null
+//Dichiarazione della variabile corrispondente alla posizione del contenitore mostrato nell'array.
+let picShownIndex = 0;//Number
+//Acquisizione primo elemento della lista.
+const firstPic = picClassList[picShownIndex]; //Element
 //Attribuzione della classe.
-picClassList[0].classList.add('shown')
+firstPic.classList.add('shown');
+
+//Al click sulle frecce, l'immagine mostrata dovrà cambiare.
+//Acquisizione bottoni.
+const upElement = document.querySelector('.up');
+const downElement = document.querySelector('.down');
+ 
+// Assegnazione comando al bottone 'up'.
+upElement.addEventListener('click', function() {
+    //La classe shown viene tolta dal contenitore attuale.
+    picClassList[picShownIndex].classList.remove('shown');
+    //E viene assegnata al contenitore precedente.
+    picShownIndex--;//Number
+    picClassList[picShownIndex].classList.add('shown');
+
+})
+
+// Assegnazione comando al bottone 'down'.
+downElement.addEventListener('click', function() {
+    //La classe shown viene tolta dal contenitore attuale.
+    picClassList[picShownIndex].classList.remove('shown');
+    //E viene assegnata al contenitore precedente.
+    picShownIndex++;//Number
+    picClassList[picShownIndex].classList.add('shown');
+
+})
