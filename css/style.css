@@ -11,6 +11,7 @@ img{
 
 /* MAIN */
 
+/* MAIN SLIDER */
 .container{
     height: 100vh;
     display: flex;
@@ -38,6 +39,16 @@ img{
     object-fit: cover;
 }
 
+/* PREWIEVs SLIDER */
+.prewievs_slider{
+    width: 20%;
+    height: 38vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* BUTTONS */
 .up,
 .down{
     position: absolute;
