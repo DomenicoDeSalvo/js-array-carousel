@@ -47,20 +47,40 @@ const downElement = document.querySelector('.down');
  
 // Assegnazione comando al bottone 'up'.
 upElement.addEventListener('click', function() {
-    //La classe shown viene tolta dal contenitore attuale.
-    picClassList[picShownIndex].classList.remove('shown');
-    //E viene assegnata al contenitore precedente.
-    picShownIndex--;//Number
-    picClassList[picShownIndex].classList.add('shown');
+    if(picShownIndex > 0) {
+
+        //La classe shown viene tolta dal contenitore attuale.
+        picClassList[picShownIndex].classList.remove('shown');
+        //E viene assegnata al contenitore precedente.
+        picShownIndex--;//Number
+        picClassList[picShownIndex].classList.add('shown');
+    } else {
+        //Creazione ciclo perpetuo.
+        picClassList[picShownIndex].classList.remove('shown');
+        picShownIndex = picClassList.length - 1; //number
+        picClassList[picShownIndex].classList.add('shown');
+
+    }
+
 
 })
 
 // Assegnazione comando al bottone 'down'.
 downElement.addEventListener('click', function() {
-    //La classe shown viene tolta dal contenitore attuale.
-    picClassList[picShownIndex].classList.remove('shown');
-    //E viene assegnata al contenitore precedente.
-    picShownIndex++;//Number
-    picClassList[picShownIndex].classList.add('shown');
+    if(picShownIndex < picClassList.length - 1) {
+
+        //La classe shown viene tolta dal contenitore attuale.
+        picClassList[picShownIndex].classList.remove('shown');
+        //E viene assegnata al contenitore precedente.
+        picShownIndex++;//Number
+        picClassList[picShownIndex].classList.add('shown');
+    } else {
+        //Creazione ciclo perpetuo.
+        picClassList[picShownIndex].classList.remove('shown');
+        picShownIndex = 0; //number
+        picClassList[picShownIndex].classList.add('shown');
+
+    }
+
 
 })
